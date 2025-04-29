@@ -1,6 +1,6 @@
 # Portfolio Personal - Luis Vera
 
-![Portfolio Screenshot](./assets/img/screenshot.png)
+![Portfolio Screenshot](./assets/img/Screenshot%20Portfolio.png)
 
 ## Demo en vivo
 
@@ -14,10 +14,8 @@ Portfolio profesional desarrollado con tecnologías web vanilla (HTML, CSS y Jav
 
 - Diseño moderno y completamente responsive
 - Modo oscuro/claro con persistencia
-- Carrusel interactivo de tecnologías
 - Formulario de contacto funcional con EmailJS
 - Animaciones y transiciones suaves
-- Generación de CV en PDF
 
 ## Tecnologías utilizadas
 
@@ -30,11 +28,13 @@ Portfolio profesional desarrollado con tecnologías web vanilla (HTML, CSS y Jav
 ## Instalación local
 
 1. Clona este repositorio:
+
 ```bash
 git clone https://github.com/tuusuario/portfolio.git
 ```
 
 2. Navega hasta el directorio del proyecto:
+
 ```bash
 cd portfolio
 ```
@@ -44,19 +44,26 @@ cd portfolio
 ## Estructura del proyecto
 
 ```
-portfolio/
-├── index.html              # Página principal
-├── education.html          # Página de educación
-├── experience.html         # Página de experiencia
+parcial-vanilla-js-vera-407272/
 ├── assets/
 │   ├── img/                # Imágenes
-│   ├── icons/              # Iconos SVG para tecnologías
+│   ├── curriculum/         # Mi curriculum
 │   └── certificates/       # Certificados en PDF
+├── scripts/
+│    ├── main.js             # Funcionalidades Home - Contacto
+│    ├── education.js        # Funcionalidades Education
+│    ├── experience.js       # Funcionalidades Experiencia
+│    └── animation.js        # Animacion con GSAP
 ├── styles/
 │   └── main.css            # Estilos CSS
-└── scripts/
-    ├── main.js             # Funcionalidades principales
-    └── tech-carousel.js    # Carrusel de tecnologías
+│   └── education.css       # Estilos CSS
+│   └── experience.css      # Estilos CSS
+│
+├── education.html          # Página de educación
+├── experience.html         # Página de experiencia
+├── index.html              # Página principal
+
+
 ```
 
 ## Contacto
