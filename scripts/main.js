@@ -3,7 +3,6 @@ const themeToggle = document.getElementById('theme-toggle');
 const menuToggle = document.getElementById('menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 const navbar = document.querySelector('.navbar');
-const downloadButton = document.getElementById('downloadButton');
 const contactForm = document.getElementById('contact-form');
 const formStatus = document.getElementById('form-status');
 
@@ -94,37 +93,6 @@ function handleScroll() {
   }
 }
 
-function downloadCV() {
-  const element = document.getElementById('cv-content');
-  
-  if (!element) {
-    console.error('No se encontró el elemento #cv-content');
-    return;
-  }
-  
-  const options = {
-    margin: 0.5,
-    filename: 'cv.pdf',
-    image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { scale: 2, useCORS: true },
-    jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-  };
-  
-  downloadButton.classList.add('loading');
-  
-  html2pdf()
-    .from(element)
-    .set(options)
-    .save()
-    .then(() => {
-      console.log('PDF generado y descargado con éxito.');
-      downloadButton.classList.remove('loading');
-    })
-    .catch(err => {
-      console.error('Error generando PDF:', err);
-      downloadButton.classList.remove('loading');
-    });
-}
 
 function handleFormSubmit(e) {
   e.preventDefault();
