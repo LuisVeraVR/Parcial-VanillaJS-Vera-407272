@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Montserrat:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+      integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+
+    <script defer src="./scripts/main.js"></script>
+
+    <title>Luis Vera | Desarrollo & Diseño</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <span>Luis Vera</span>
+        </div>
+        <div class="menu-toggle" id="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Inicio</a></li>
+          <li><a href="education.html">Educación</a></li>
+          <li><a href="experience.html">Experiencia</a></li>
+          <li><a href="#contact">Contacto</a></li>
+          <li><button id="theme-toggle" class="theme-toggle">🌙</button></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero hero-profile">
+      <div class="hero-profile-container">
+        <div class="profile-image-container animate-fade-in">
+          <img src="./assets/img/user_image.png" alt="Luis Vera" class="profile-image" />
+          <div class="profile-image-backdrop"></div>
+        </div>
+        
+        <div class="profile-content">
+          <h1 class="profile-name animate-text">Luis Vera</h1>
+          <h2 class="profile-title animate-text delay-1">Desarrollador Full Stack</h2>
+          <p class="profile-description animate-text delay-2">
+            Apasionado por la tecnología y el diseño, disfruto crear
+            soluciones digitales que transformen ideas en experiencias
+            innovadoras.
+          </p>
+          
+          <div class="profile-buttons animate-text delay-3">
+            <a href="#contact" class="btn btn-primary">Contáctame</a>
+            <a id="downloadButton" class="btn btn-secondary">Descargar CV</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title">Sobre mí</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <p>
+              Desarrollador Full Stack con experiencia en tecnologías como Angular, Laravel, Express, MySQL y MongoDB. 
+              Mi pasión es crear soluciones digitales que combinen un excelente diseño con funcionalidad robusta.
+              Siempre estoy en búsqueda de nuevos desafíos y aprendizajes para seguir creciendo como profesional.
+            </p>
+            <div class="contact-info">
+              <div class="info-item">
+                <span class="icon">📞</span>
+                <span>+57 3233653285</span>
+              </div>
+              <div class="info-item">
+                <span class="icon">📧</span>
+                <span>luisveravr.dev@gmail.com</span>
+              </div>
+              <div class="info-item">
+                <span class="icon">📍</span>
+                <span>Colombia</span>
+              </div>
+            </div>
+            <div class="skills">
+              <span class="skill-tag">Angular</span>
+              <span class="skill-tag">Laravel</span>
+              <span class="skill-tag">Express</span>
+              <span class="skill-tag">MySQL</span>
+              <span class="skill-tag">MongoDB</span>
+              <span class="skill-tag">Git / Github</span>
+              <span class="skill-tag">JavaScript</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Mis Servicios</h2>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">💻</div>
+            <h3>Desarrollo Frontend</h3>
+            <p>Interfaces modernas con Angular, PrimeNG y JavaScript para experiencias de usuario atractivas.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">⚙️</div>
+            <h3>Desarrollo Backend</h3>
+            <p>APIs robustas y sistemas escalables con Express, Laravel y Python.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🛢️</div>
+            <h3>Bases de Datos</h3>
+            <p>Implementación y optimización con MySQL, MongoDB, Redis y sistemas de almacenamiento cloud.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="section-title">Contáctame</h2>
+        <div class="contact-container">
+          <div class="contact-info-panel">
+            <h3>¡Trabajemos juntos!</h3>
+            <p>Envíame un mensaje y te responderé lo antes posible.</p>
+            <div class="contact-method">
+              <span class="icon">📞</span>
+              <div>
+                <h4>Teléfono</h4>
+                <p>+57 3233653285</p>
+              </div>
+            </div>
+            <div class="contact-method">
+              <span class="icon">📧</span>
+              <div>
+                <h4>Email</h4>
+                <p>luisveravr.dev@gmail.com</p>
+              </div>
+            </div>
+          </div>
+          <div class="contact-form-container">
+            <form id="contact-form" class="contact-form">
+              <div class="form-group">
+                <label for="name">Nombre</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  placeholder="Tu nombre"
+                />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  placeholder="tucorreo@ejemplo.com"
+                />
+              </div>
+              <div class="form-group">
+                <label for="message">Mensaje</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  required
+                  placeholder="Escribe tu mensaje aquí..."
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary submit-btn">
+                <span class="btn-text">Enviar Mensaje</span>
+                <span class="btn-loading"></span>
+              </button>
+              <div id="form-status" class="form-status"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <span>Luis Vera</span>
+          </div>
+          <div class="footer-links">
+            <a href="index.html">Inicio</a>
+            <a href="education.html">Educación</a>
+            <a href="experience.html">Experiencia</a>
+            <a href="#contact">Contacto</a>
+          </div>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/luisveravr/" target="_blank" class="social-icon">LinkedIn</a>
+            <a href="https://github.com/LuisVeraVR" target="_blank" class="social-icon">GitHub</a>
+            <a href="http://x.com/LVera56385" target="_blank" class="social-icon">Twitter</a>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2025 Luis Vera. Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </footer>
+
+    <div id="cv-content" class="hidden-print-content">
+      <div class="card">
+        <div>
+          <div class="container-image-user">
+            <img
+              class="user-image"
+              src="./assets/img/user_image.png"
+              alt="Avatar"
+            />
+          </div>
+
+          <div class="container-description">
+            <h2 class="description-title">Acerca de mi</h2>
+            <p class="user-description">
+              Desarrollador Full Stack con experiencia en Angular, Laravel, Express, MySQL y MongoDB.
+              Apasionado por la tecnología y el diseño, disfruto crear
+              soluciones digitales que transformen ideas en experiencias
+              innovadoras. Siempre estoy en búsqueda de nuevos desafíos y
+              aprendizajes para seguir creciendo como profesional.
+            </p>
+          </div>
+          <div class="container-info">
+            <div class="phone-container">
+              <p class="text-info">📞 +57 3233653285</p>
+            </div>
+            <div class="mail-container">
+              <p class="text-info">📧 luisveravr.dev@gmail.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
