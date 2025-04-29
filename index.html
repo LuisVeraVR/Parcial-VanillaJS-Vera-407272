@@ -43,7 +43,7 @@
           <li><a href="index.html" class="active">Inicio</a></li>
           <li><a href="education.html">Educación</a></li>
           <li><a href="experience.html">Experiencia</a></li>
-          <li><a href="#contact">Contacto</a></li>
+          <li><a href="#talk">Hablemos</a></li>
           <li><button id="theme-toggle" class="theme-toggle">🌙</button></li>
         </ul>
       </nav>
@@ -134,65 +134,31 @@
       </div>
     </section>
 
-    <section id="contact" class="section">
+    <section id="talk" class="section">
       <div class="container">
-        <h2 class="section-title">Contáctame</h2>
-        <div class="contact-container">
-          <div class="contact-info-panel">
-            <h3>¡Trabajemos juntos!</h3>
-            <p>Envíame un mensaje y te responderé lo antes posible.</p>
-            <div class="contact-method">
-              <span class="icon">📞</span>
-              <div>
-                <h4>Teléfono</h4>
-                <p>+57 3233653285</p>
-              </div>
-            </div>
-            <div class="contact-method">
-              <span class="icon">📧</span>
-              <div>
-                <h4>Email</h4>
-                <p>luisveravr.dev@gmail.com</p>
-              </div>
-            </div>
+        <h2 class="section-title">Hablemos</h2>
+        <div class="hablemos-container">
+          <div class="hablemos-image">
+            <img src="./assets/gif/WorkDog.gif" alt="Conversación animada" class="chat-gif animate-on-scroll">
           </div>
-          <div class="contact-form-container">
-            <form id="contact-form" class="contact-form">
+          <div class="hablemos-form-container">
+            <h3>¿Tienes algo que decirme?</h3>
+            <p>Escribe tu mensaje y te responderé lo antes posible</p>
+            <form id="hablemos-form" class="hablemos-form">
               <div class="form-group">
-                <label for="name">Nombre</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  placeholder="Tu nombre"
-                />
-              </div>
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  placeholder="tucorreo@ejemplo.com"
-                />
-              </div>
-              <div class="form-group">
-                <label for="message">Mensaje</label>
                 <textarea
-                  id="message"
-                  name="message"
+                  id="quick-message"
+                  name="quick-message"
                   rows="4"
                   required
                   placeholder="Escribe tu mensaje aquí..."
                 ></textarea>
               </div>
-              <button type="submit" class="btn btn-primary submit-btn">
-                <span class="btn-text">Enviar Mensaje</span>
+              <button type="submit" class="btn btn-primary quick-submit-btn">
+                <span class="btn-text">Enviar</span>
                 <span class="btn-loading"></span>
               </button>
-              <div id="form-status" class="form-status"></div>
+              <div id="quick-form-status" class="form-status"></div>
             </form>
           </div>
         </div>
