@@ -47,13 +47,14 @@ cd portfolio
 parcial-vanilla-js-vera-407272/
 ├── assets/
 │   ├── img/                # Imágenes
+│   ├── gif/                # GIF
 │   ├── curriculum/         # Mi curriculum
 │   └── certificates/       # Certificados en PDF
 ├── scripts/
-│    ├── main.js             # Funcionalidades Home - Contacto
+│    ├──animation.js        # Animacion con GSAP
 │    ├── education.js        # Funcionalidades Education
 │    ├── experience.js       # Funcionalidades Experiencia
-│    └── animation.js        # Animacion con GSAP
+│    └──  main.js             # Funcionalidades Home - Contacto
 ├── styles/
 │   └── main.css            # Estilos CSS
 │   └── education.css       # Estilos CSS
