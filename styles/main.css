@@ -45,13 +45,7 @@
     --border-color: rgba(0, 0, 0, 0.1);
 }
 
-[data-theme="dark"] {
-    --bg-main: #121212;
-    --bg-alt: #1e1e1e;
-    --text-main: #f5f5f5;
-    --text-alt: #a7a7a7;
-    --border-color: rgba(255, 255, 255, 0.1);
-}
+
 
 *,
 *::before,
@@ -210,9 +204,6 @@ a:hover {
     background-color: rgba(0, 0, 0, 0.05);
 }
 
-[data-theme="dark"] .theme-toggle {
-    transform: rotate(180deg);
-}
 
 .hero {
     height: 100vh;

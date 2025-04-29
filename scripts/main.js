@@ -1,5 +1,4 @@
 const body = document.body;
-const themeToggle = document.getElementById('theme-toggle');
 const menuToggle = document.getElementById('menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 const navbar = document.querySelector('.navbar');
@@ -19,15 +18,9 @@ document.addEventListener('DOMContentLoaded', function () {
     setupScrollAnimations();
 });
 
-function initializeTheme() {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    setTheme(savedTheme);
-}
+
 
 function setupEventListeners() {
-    if (themeToggle) {
-        themeToggle.addEventListener('click', toggleTheme);
-    }
 
     if (menuToggle) {
         menuToggle.addEventListener('click', toggleMenu);
@@ -52,18 +45,7 @@ function setupEventListeners() {
     window.addEventListener('scroll', handleScroll);
 }
 
-function toggleTheme() {
-    const currentTheme = body.getAttribute('data-theme') || 'light';
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
 
-    setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
-}
-
-function setTheme(theme) {
-    body.setAttribute('data-theme', theme);
-    themeToggle.textContent = theme === 'light' ? '🌙' : '☀️';
-}
 
 function toggleMenu() {
     navLinks.classList.toggle('active');
