@@ -10,12 +10,9 @@ const downloadButton = document.querySelector('.btn-secondary');
 
 (function () {
     emailjs.init('7xJ5AwH-qdRG69jDs');
-    console.log('EmailJS inicializado');
 })();
 
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('DOM completamente cargado');
-    // Verificar si la función initializeTheme existe antes de llamarla
     if (typeof initializeTheme === 'function') {
         initializeTheme();
     } else {
@@ -26,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function setupEventListeners() {
-    console.log('Configurando event listeners');
 
     if (menuToggle) {
         menuToggle.addEventListener('click', toggleMenu);
@@ -38,12 +34,10 @@ function setupEventListeners() {
 
     if (contactForm) {
         contactForm.addEventListener('submit', handleFormSubmit);
-        console.log('Listener de formulario de contacto configurado');
     }
 
     if (hablemosForm) {
         hablemosForm.addEventListener('submit', handleQuickFormSubmit);
-        console.log('Listener de formulario hablemos configurado');
     } else {
         console.error('Formulario hablemos no encontrado en el DOM');
     }
@@ -98,7 +92,6 @@ function downloadCV(e) {
 
 function handleFormSubmit(e) {
     e.preventDefault();
-    console.log('Formulario de contacto enviado');
 
     if (!contactForm) {
         console.error('El formulario de contacto no fue encontrado');
@@ -140,9 +133,7 @@ function handleFormSubmit(e) {
         message: message
     };
 
-    console.log('Enviando mensaje de contacto:', templateParams);
 
-    // Verificar si emailjs está disponible
     if (typeof emailjs === 'undefined') {
         console.error('EmailJS no está definido');
         submitBtn.classList.remove('loading');
@@ -152,7 +143,6 @@ function handleFormSubmit(e) {
 
     emailjs.send('service_tm0xrli', 'template_3mdc4os', templateParams)
         .then(function (response) {
-            console.log('Respuesta exitosa:', response);
             submitBtn.classList.remove('loading');
             showFormStatus('success', '¡Mensaje enviado con éxito! Te responderé pronto.');
             contactForm.reset();
@@ -165,8 +155,6 @@ function handleFormSubmit(e) {
 
 function handleQuickFormSubmit(e) {
     e.preventDefault();
-    console.log('Formulario hablemos enviado');
-
     if (!hablemosForm) {
         console.error('El formulario no fue encontrado');
         return;
@@ -201,9 +189,7 @@ function handleQuickFormSubmit(e) {
         subject: 'Mensaje directo de tu sitio web'
     };
 
-    console.log('Enviando mensaje directo:', templateParams);
 
-    // Verificar si emailjs está disponible
     if (typeof emailjs === 'undefined') {
         console.error('EmailJS no está definido');
         submitBtn.classList.remove('loading');
@@ -213,7 +199,6 @@ function handleQuickFormSubmit(e) {
 
     emailjs.send('service_tm0xrli', 'template_3mdc4os', templateParams)
         .then(function (response) {
-            console.log('Respuesta exitosa:', response);
             submitBtn.classList.remove('loading');
             showQuickFormStatus('success', '¡Mensaje enviado! Te responderé pronto.');
             hablemosForm.reset();
@@ -225,11 +210,10 @@ function handleQuickFormSubmit(e) {
 }
 
 function showFormStatus(type, message) {
-    console.log(`Mostrando estado de formulario contacto: ${type} - ${message}`);
     
     if (!formStatus) {
         console.error('El elemento formStatus no fue encontrado');
-        alert(message); // Usar alert como fallback
+        alert(message); 
         return;
     }
     
@@ -249,11 +233,10 @@ function showFormStatus(type, message) {
 }
 
 function showQuickFormStatus(type, message) {
-    console.log(`Mostrando estado de formulario rápido: ${type} - ${message}`);
     
     if (!quickFormStatus) {
         console.error('El elemento quickFormStatus no fue encontrado');
-        alert(message); // Usar alert como fallback
+        alert(message);
         return;
     }
 
@@ -273,7 +256,6 @@ function showQuickFormStatus(type, message) {
 }
 
 function setupScrollAnimations() {
-    console.log('Configurando animaciones de scroll');
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -295,7 +277,6 @@ function setupScrollAnimations() {
             element.classList.add('animate-on-scroll');
             observer.observe(element);
         });
-        console.log(`${elements.length} elementos configurados para animación`);
     } else {
         console.warn('No se encontraron elementos para animar');
     }
