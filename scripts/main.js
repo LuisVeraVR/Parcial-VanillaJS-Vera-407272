@@ -10,17 +10,23 @@ const downloadButton = document.querySelector('.btn-secondary');
 
 (function () {
     emailjs.init('7xJ5AwH-qdRG69jDs');
+    console.log('EmailJS inicializado');
 })();
 
 document.addEventListener('DOMContentLoaded', function () {
-    initializeTheme();
+    console.log('DOM completamente cargado');
+    // Verificar si la función initializeTheme existe antes de llamarla
+    if (typeof initializeTheme === 'function') {
+        initializeTheme();
+    } else {
+        console.warn('La función initializeTheme no está definida');
+    }
     setupEventListeners();
     setupScrollAnimations();
 });
 
-
-
 function setupEventListeners() {
+    console.log('Configurando event listeners');
 
     if (menuToggle) {
         menuToggle.addEventListener('click', toggleMenu);
@@ -32,10 +38,14 @@ function setupEventListeners() {
 
     if (contactForm) {
         contactForm.addEventListener('submit', handleFormSubmit);
+        console.log('Listener de formulario de contacto configurado');
     }
 
     if (hablemosForm) {
         hablemosForm.addEventListener('submit', handleQuickFormSubmit);
+        console.log('Listener de formulario hablemos configurado');
+    } else {
+        console.error('Formulario hablemos no encontrado en el DOM');
     }
 
     document.querySelectorAll('.nav-links a').forEach(link => {
@@ -44,8 +54,6 @@ function setupEventListeners() {
 
     window.addEventListener('scroll', handleScroll);
 }
-
-
 
 function toggleMenu() {
     navLinks.classList.toggle('active');
@@ -90,13 +98,41 @@ function downloadCV(e) {
 
 function handleFormSubmit(e) {
     e.preventDefault();
+    console.log('Formulario de contacto enviado');
+
+    if (!contactForm) {
+        console.error('El formulario de contacto no fue encontrado');
+        return;
+    }
 
     const submitBtn = contactForm.querySelector('.submit-btn');
+    if (!submitBtn) {
+        console.error('Botón de envío no encontrado en formulario de contacto');
+        return;
+    }
+    
     submitBtn.classList.add('loading');
 
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
+    const nameElement = document.getElementById('name');
+    const emailElement = document.getElementById('email');
+    const messageElement = document.getElementById('message');
+    
+    if (!nameElement || !emailElement || !messageElement) {
+        console.error('Uno o más elementos del formulario no fueron encontrados');
+        submitBtn.classList.remove('loading');
+        return;
+    }
+
+    const name = nameElement.value;
+    const email = emailElement.value;
+    const message = messageElement.value;
+
+    if (!name || name.trim() === '' || !email || email.trim() === '' || !message || message.trim() === '') {
+        console.error('Campos del formulario incompletos');
+        submitBtn.classList.remove('loading');
+        showFormStatus('error', 'Por favor, completa todos los campos');
+        return;
+    }
 
     const templateParams = {
         from_name: name,
@@ -104,20 +140,32 @@ function handleFormSubmit(e) {
         message: message
     };
 
+    console.log('Enviando mensaje de contacto:', templateParams);
+
+    // Verificar si emailjs está disponible
+    if (typeof emailjs === 'undefined') {
+        console.error('EmailJS no está definido');
+        submitBtn.classList.remove('loading');
+        showFormStatus('error', 'Error al enviar: servicio no disponible');
+        return;
+    }
+
     emailjs.send('service_tm0xrli', 'template_3mdc4os', templateParams)
         .then(function (response) {
+            console.log('Respuesta exitosa:', response);
             submitBtn.classList.remove('loading');
             showFormStatus('success', '¡Mensaje enviado con éxito! Te responderé pronto.');
             contactForm.reset();
         }, function (error) {
             submitBtn.classList.remove('loading');
             showFormStatus('error', 'Hubo un error al enviar el mensaje. Por favor intenta de nuevo.');
-            console.error('Error:', error);
+            console.error('Error detallado:', error);
         });
 }
 
 function handleQuickFormSubmit(e) {
     e.preventDefault();
+    console.log('Formulario hablemos enviado');
 
     if (!hablemosForm) {
         console.error('El formulario no fue encontrado');
@@ -125,9 +173,26 @@ function handleQuickFormSubmit(e) {
     }
 
     const submitBtn = hablemosForm.querySelector('.quick-submit-btn');
+    if (!submitBtn) {
+        console.error('Botón de envío no encontrado');
+        return;
+    }
     submitBtn.classList.add('loading');
 
-    const message = document.getElementById('quick-message').value;
+    const messageElement = document.getElementById('quick-message');
+    if (!messageElement) {
+        console.error('Elemento de mensaje no encontrado');
+        submitBtn.classList.remove('loading');
+        return;
+    }
+    
+    const message = messageElement.value;
+    if (!message || message.trim() === '') {
+        console.error('Mensaje vacío');
+        submitBtn.classList.remove('loading');
+        showQuickFormStatus('error', 'Por favor, escribe un mensaje');
+        return;
+    }
 
     const templateParams = {
         from_name: 'Visitante del sitio',
@@ -137,6 +202,14 @@ function handleQuickFormSubmit(e) {
     };
 
     console.log('Enviando mensaje directo:', templateParams);
+
+    // Verificar si emailjs está disponible
+    if (typeof emailjs === 'undefined') {
+        console.error('EmailJS no está definido');
+        submitBtn.classList.remove('loading');
+        showQuickFormStatus('error', 'Error al enviar: servicio no disponible');
+        return;
+    }
 
     emailjs.send('service_tm0xrli', 'template_3mdc4os', templateParams)
         .then(function (response) {
@@ -152,6 +225,14 @@ function handleQuickFormSubmit(e) {
 }
 
 function showFormStatus(type, message) {
+    console.log(`Mostrando estado de formulario contacto: ${type} - ${message}`);
+    
+    if (!formStatus) {
+        console.error('El elemento formStatus no fue encontrado');
+        alert(message); // Usar alert como fallback
+        return;
+    }
+    
     formStatus.className = 'form-status';
     formStatus.classList.add(type);
     formStatus.textContent = message;
@@ -168,8 +249,11 @@ function showFormStatus(type, message) {
 }
 
 function showQuickFormStatus(type, message) {
+    console.log(`Mostrando estado de formulario rápido: ${type} - ${message}`);
+    
     if (!quickFormStatus) {
         console.error('El elemento quickFormStatus no fue encontrado');
+        alert(message); // Usar alert como fallback
         return;
     }
 
@@ -189,6 +273,8 @@ function showQuickFormStatus(type, message) {
 }
 
 function setupScrollAnimations() {
+    console.log('Configurando animaciones de scroll');
+    
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -203,8 +289,14 @@ function setupScrollAnimations() {
     const elements = document.querySelectorAll(
         '.service-card, .section-title, .about-image-wrapper, .about-text, .hablemos-form-container'
     );
-    elements.forEach(element => {
-        element.classList.add('animate-on-scroll');
-        observer.observe(element);
-    });
+    
+    if (elements.length > 0) {
+        elements.forEach(element => {
+            element.classList.add('animate-on-scroll');
+            observer.observe(element);
+        });
+        console.log(`${elements.length} elementos configurados para animación`);
+    } else {
+        console.warn('No se encontraron elementos para animar');
+    }
 }
