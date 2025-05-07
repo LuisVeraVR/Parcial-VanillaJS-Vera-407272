@@ -30,13 +30,13 @@ Portfolio profesional desarrollado con tecnologías web vanilla (HTML, CSS y Jav
 1. Clona este repositorio:
 
 ```bash
-git clone https://github.com/tuusuario/portfolio.git
+git clone https://github.com/LuisVera/Parcial-VanillaJS-Vera-407272.git
 ```
 
 2. Navega hasta el directorio del proyecto:
 
 ```bash
-cd portfolio
+cd Parcial-VanillaJS-Vera-407272
 ```
 
 3. Abre el archivo `index.html` en tu navegador o usa un servidor local.
@@ -71,8 +71,6 @@ parcial-vanilla-js-vera-407272/
 
 - Email: luisveravr.dev@gmail.com
 - Teléfono: +57 3233653285
-- [LinkedIn](https://linkedin.com/)
-- [GitHub](https://github.com/)
 
 ---
 
